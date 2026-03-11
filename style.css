@@ -1,0 +1,155 @@
+   
+   /*Aqui foi melhorado o HEADER, a barra de cima foi criada, dando mais cara de Navbar.*/
+header{
+    background: rgb(222, 253, 255);
+    padding: 5px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    /*Aqui faz a página do MENU fixar quando rolar a página.*/
+    position:sticky;
+    top: 0;
+    z-index: 6000 ;
+    
+}
+    /*Aqui eu controlo o tamanho da imagem (logo)*/
+header img{
+    width: 150px;
+    height: auto;
+}
+    /*Aqui deu um espaçamento melhor entre os blocos, Header, Titulos e Produtos. tudo que for dentro dos section foi alterado aqui, dando um espaço.*/
+section{
+    padding: 60px 0;
+}
+    /*Todas as fontes foram aperfeiçoadas.*/
+h1, h2, h3{
+    font-weight: 600;
+}
+p{
+    line-height: 1.5;
+}
+
+.icons img{
+    width: 30px;
+    height: auto;
+    padding: 0px 5px;
+    align-content: center;
+}
+
+.menu{ 
+    padding: 0px; 
+    display: flex; 
+    gap: 20px; 
+    list-style: none; 
+    justify-content: center; 
+    align-items: center; }
+
+    /*Aqui é para melhorar as fontes, e colocar cores tanto nas letras como no fundo*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #b3f2fa;
+    color: #04294b;
+}
+
+    /*Aqui é interessante, pois estou usando container para controlar 3 "blocos" Header, Hero e produtos, se eu fizer muitos ajustes aqui, vai interferir em outros quadros, o melhor seria limitar o controle para centralização e alinhamento. Sendo assim, temos um controle melhor, pois o container está apenas para os tamanhos e alinhamentos, e isso será usada em todos os containers. Foi separado o "Heander .container" para nele usar o flex e ajustes mais finos.*/ 
+
+.container{ 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0px 20px;
+} 
+
+header .container{ 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; } 
+
+    /*Aqui estamos fazendo o GRID = Display Grid. no grid-template-columns, os dois "autos" significad que quero duas colunas, para ser 3 então = auto 3x. GAP está no alinhamento, o "inherit" a divisão fica separados OU posso usar em px exemplo: 20px. */ /*Porém, existe uma forma mais semantica: Usar o "repeat(2, 1fr); seria mais interessante, pois tenho um controle maior, se usar apenas o AUTO, ele vai usar o tamanho da imagem, sem controle. FR = 1 fração do espaço disponível*/ 
+
+.grid-produtos{ 
+    display: grid; 
+    /*Estava usando: grid-template-columns: repeat(3, 1fr) funciona, porém, dessa forma agora ajusta automaticamente os números de colunas, fica mais elegante.*/
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap:10px;
+ } 
+
+    /*Observar que estamos arrumando duas coisas, primeiro lugar arrumamos o alinhamento das coisas da foto, e depois alteramos o tamanho. aqui fizemos um "quadro" para a foto.*/ 
+
+.card{ 
+    background: #fff; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    text-align: center; 
+    transition: 0.3s ease; 
+    /*Quando a página está carregando, os cards terão uma pequena animação de carregamento.*/    
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.6s ease forwards;
+} 
+
+    /*faz parte da animação de carregamento dos cards*/
+@keyframes aparecer{
+    to{ 
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}  
+    /*Dessa forma faz com que a imagem respeite os parametros solicitados no card, não estoura o layout e fica responsível.*/ 
+
+.card img{ 
+    width: 100%; 
+    height: auto; 
+    border-radius: 5px; } 
+
+    /*Isso faz que quando o usuário passe o mouse por cima das fotos, ela ganha um destaque, saltando para cima.*/ 
+
+.card:hover{ 
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); } 
+
+    /*Aqui é onde tudo fica responsível, tanto no celular, tablet ou computador de mesa. Estamos solicitando que ele cresça o máximo 768px no desktop ficará 2 colunas e no celular 1. (Ir mudando e testanto) */ 
+
+@media (max-width: 768px){ 
+    .grid-produtos{ 
+        grid-template-columns: 1fr; } }
+
+        /*Aqui foi melhorado o titulo de produtos, dando um respiro melhor.*/
+.produtos h2{
+    margin-bottom: 20px;
+    font-size: 28px;    
+}
+
+    /*Aqui foi feito um botão para ver os produtos, juntamente do HOVER que faz o efeito quando passa o mouse por cima.*/
+.btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: rgb(3, 75, 80);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+.btn:hover{
+    background: #011a1d
+}
+    /*Foi Criado outra barra embaixo do HEADER e criando um efeito degradê. Tudo foi centralizado*/
+.hero{
+    margin-top: 10px;
+    background: linear-gradient(to right, #026161, #7fc8ca);
+    color: white;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+    /*Aqui foi alterado a parte dos titulos do site.*/
+.hero h1{
+font-size: 40px;
+margin-bottom: 15px;
+}
+
+.hero p{
+    font-size: 20px;
+    opacity: 0.8;
+}
+
