@@ -1,13 +1,9 @@
    
    /*Aqui foi melhorado o HEADER, a barra de cima foi criada, dando mais cara de Navbar.*/
 header{
-    background: rgb(222, 253, 255);
-    padding: 5px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    /*Aqui faz a página do MENU fixar quando rolar a página.*/
-    position:sticky;
-    top: 0;
-    z-index: 6000 ;
+background: rgb(222, 253, 255);
+padding: 5px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     
 }
     /*Aqui eu controlo o tamanho da imagem (logo)*/
@@ -66,8 +62,10 @@ header .container{
 
 .grid-produtos{ 
     display: grid; 
-    /*Estava usando: grid-template-columns: repeat(3, 1fr) funciona, porém, dessa forma agora ajusta automaticamente os números de colunas, fica mais elegante.*/
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    /*Estava usando: grid-template-columns: repeat(3, 1fr) funciona, porém, dessa forma agora ajusta automaticamente os números de colunas, fica mais elegante.
+    
+    Usei assim também: repeat(auto-fit, minmax(250px, 1fr */
+    grid-template-columns: repeat(4, 1fr); 
     gap:10px;
  } 
 
@@ -98,8 +96,10 @@ header .container{
 
 .card img{ 
     width: 100%; 
-    height: auto; 
-    border-radius: 5px; } 
+    height: 200px; 
+    border-radius: 5px;
+    object-fit: cover; } 
+    
 
     /*Isso faz que quando o usuário passe o mouse por cima das fotos, ela ganha um destaque, saltando para cima.*/ 
 
@@ -111,7 +111,7 @@ header .container{
 
 @media (max-width: 768px){ 
     .grid-produtos{ 
-        grid-template-columns: 1fr; } }
+        grid-template-columns: repeat(3, 1fr) } }
 
         /*Aqui foi melhorado o titulo de produtos, dando um respiro melhor.*/
 .produtos h2{
@@ -139,7 +139,11 @@ header .container{
     background: linear-gradient(to right, #026161, #7fc8ca);
     color: white;
     text-align: center;
-    padding: 50px 30px;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    overflow-x: hidden;
+
 }
 
     /*Aqui foi alterado a parte dos titulos do site.*/
@@ -149,7 +153,21 @@ margin-bottom: 15px;
 }
 
 .hero p{
-    font-size: 20px;
-    opacity: 0.8;
-}
+    width: 100%;
 
+}
+.slider{
+    width: 100%;
+    overflow: hidden;
+}
+.slides{
+    display: flex;
+    transition: transform 0.5s ease;
+
+}
+.slides img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
