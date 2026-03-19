@@ -114,6 +114,11 @@ header .container{
         grid-template-columns: repeat(3, 1fr) } }
 
         /*Aqui foi melhorado o titulo de produtos, dando um respiro melhor.*/
+@media(max-width: 768px){
+    .slides img{
+        height: 40vh;
+    }
+}
 .produtos h2{
     margin-bottom: 20px;
     font-size: 28px;    
@@ -167,7 +172,7 @@ margin-bottom: 15px;
 }
 .slides img{
     width: 100%;
-    height: 400px;
+    height: 60vh;
     object-fit: cover;
     flex-shrink: 0;
 }
